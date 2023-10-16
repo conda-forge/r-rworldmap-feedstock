@@ -1,4 +1,4 @@
-{% set version = '1.3-6' %}
+{% set version = "1.3-8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rworldmap_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rworldmap/rworldmap_{{ version }}.tar.gz
-  sha256: 53eec8637a39754b87cbcf625bf644b26ddd5a82996b107abba5828c930530e0
+  sha256: a60ec649f70a7537fdbe65fed58d2c48a1b191cd944681eef2944279a8dcea00
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -41,8 +41,7 @@ test:
     - "\"%R%\" -e \"library('rworldmap')\""  # [win]
 
 about:
-  home: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap,
-    http://andysouth.co.uk/
+  home: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap, http://andysouth.co.uk/
   license: GPL-2.0-or-later
   summary: Enables mapping of country level and gridded user datasets.
   license_family: GPL2
