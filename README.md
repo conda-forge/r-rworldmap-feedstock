@@ -3,11 +3,13 @@ About r-rworldmap-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rworldmap-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap, http://andysouth.co.uk/
+Home: https://github.com/AndySouth/rworldmap/
 
 Package license: GPL-2.0-or-later
 
 Summary: Enables mapping of country level and gridded user datasets.
+
+Documentation: https://groups.google.com/forum/#!forum/rworldmap
 
 Current build status
 ====================

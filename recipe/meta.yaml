@@ -1,4 +1,4 @@
-{% set version = '1.3-6' %}
+{% set version = "1.3-8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rworldmap_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rworldmap/rworldmap_{{ version }}.tar.gz
-  sha256: 53eec8637a39754b87cbcf625bf644b26ddd5a82996b107abba5828c930530e0
+  sha256: a60ec649f70a7537fdbe65fed58d2c48a1b191cd944681eef2944279a8dcea00
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -27,13 +27,15 @@ requirements:
   host:
     - r-base
     - r-fields
-    - r-maptools
+    - r-raster
     - r-sp
+    - r-terra
   run:
     - r-base
     - r-fields
-    - r-maptools
+    - r-raster
     - r-sp
+    - r-terra
 
 test:
   commands:
@@ -41,36 +43,16 @@ test:
     - "\"%R%\" -e \"library('rworldmap')\""  # [win]
 
 about:
-  home: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap,
-    http://andysouth.co.uk/
+  home: https://github.com/AndySouth/rworldmap/
+  doc_url: https://groups.google.com/forum/#!forum/rworldmap
   license: GPL-2.0-or-later
   summary: Enables mapping of country level and gridded user datasets.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - colineroyaux
-
-# Package: rworldmap
-# Type: Package
-# Title: Mapping Global Data
-# Version: 1.3-6
-# Date: 2016-02-03
-# Author: Andy South
-# Maintainer: Andy South <southandy@gmail.com>
-# Description: Enables mapping of country level and gridded user datasets.
-# License: GPL (>= 2)
-# Depends: R (>= 2.10.0), sp
-# Imports: maptools, fields, methods
-# Suggests: rgdal, rworldxtra, RColorBrewer, classInt
-# LazyData: true
-# URL: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap, http://andysouth.co.uk/
-# BugReports: https://github.com/AndySouth/rworldmap/issues
-# RoxygenNote: 5.0.1
-# NeedsCompilation: no
-# Packaged: 2016-02-03 10:04:28 UTC; andy
-# Repository: CRAN
-# Date/Publication: 2016-02-03 12:26:35
